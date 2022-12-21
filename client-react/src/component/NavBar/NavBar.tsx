@@ -18,8 +18,9 @@ export default function NavBar() {
   }
 
   return (
-    <Navbar isBordered variant="sticky">
+    <Navbar aria-label="navbar" isBordered variant="sticky">
       <Navbar.Content
+        aria-label="navbar content"
         style={{
           width: "100%",
           display: "flex",
@@ -31,10 +32,10 @@ export default function NavBar() {
             display: loginDisplay,
           }}
         >
-          <Navbar.Item>
+          <Navbar.Item aria-label="navbar item">
             <LoginModal></LoginModal>
           </Navbar.Item>
-          <Navbar.Item>
+          <Navbar.Item aria-label="navbar item">
             <SignUpModal></SignUpModal>
           </Navbar.Item>
         </div>

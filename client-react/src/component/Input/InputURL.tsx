@@ -4,6 +4,7 @@ import CreateButton from "../Button/CreateButton";
 export default function InputURL() {
   return (
     <Input
+      aria-label="input"
       clearable
       size="xl"
       rounded
@@ -13,6 +14,7 @@ export default function InputURL() {
       css={{
         width: "100%",
         margin: "20px 0",
+        paddingLeft: "20px",
       }}
     />
   );

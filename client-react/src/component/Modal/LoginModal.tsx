@@ -10,7 +10,6 @@ import {
   useInput,
 } from "@nextui-org/react";
 import { EmailSecurity, LockOne, Google } from "@icon-park/react";
-import { FcGoogle } from "react-icons/fc";
 import GoogleLogin from "../Button/GoogleLogin";
 
 export default function LoginModal() {
@@ -35,7 +34,6 @@ export default function LoginModal() {
   const [updated, setUpdated] = useState(password);
   var inputColor: string | undefined;
   var helperText: string | undefined;
-  // var helper: string | undefined;
 
   const helper = useMemo(() => {
     if (!value) return;
@@ -73,28 +71,30 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Button light auto onClick={handler}>
+      <Button aria-label="button" light auto onClick={handler}>
         Login
       </Button>
       <Modal
+        aria-label="modal"
         closeButton
         blur
         aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
       >
-        <Modal.Header>
+        <Modal.Header aria-label="modal header">
           <Text id="modal-title" size={18}>
             <Text h3>{password}</Text>
           </Text>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body aria-label="modal body">
           <div
             style={{
               marginBottom: "1.7rem",
             }}
           >
             <Input
+              aria-label="input"
               clearable
               bordered
               fullWidth
@@ -114,6 +114,7 @@ export default function LoginModal() {
             }}
           >
             <Input.Password
+              aria-label="input password"
               id="password"
               clearable
               bordered
@@ -128,22 +129,35 @@ export default function LoginModal() {
               contentLeft={<LockOne theme="outline" size="20" fill="#333" />}
             />
           </div>
-          <Row justify="space-between">
-            <Checkbox>
+          <Row aria-label="row" justify="space-between">
+            <Checkbox aria-label="checkbox">
               <Text size={14}>Remember me</Text>
             </Checkbox>
-            <Link color="text" href="#">
+            <Link
+              aria-label="link"
+              color="text"
+              href="#"
+              style={{
+                padding: "0px 5px",
+              }}
+            >
               <Text size={14}>Forget Password</Text>
             </Link>
           </Row>
 
           <GoogleLogin />
         </Modal.Body>
-        <Modal.Footer>
-          <Button auto flat color="error" onClick={closeHandler}>
+        <Modal.Footer aria-label="modal footer">
+          <Button
+            aria-label="button"
+            auto
+            flat
+            color="error"
+            onClick={closeHandler}
+          >
             Close
           </Button>
-          <Button auto onClick={loginValidation}>
+          <Button aria-label="button" auto onClick={loginValidation}>
             Login
           </Button>
         </Modal.Footer>

@@ -6,7 +6,7 @@ export default function ResultTable() {
   const title = "Google";
   const link = "https://www.google.com";
   return (
-    <Table>
+    <Table aria-label="table">
       <Table.Header>
         <Table.Column>Title</Table.Column>
         <Table.Column>Link</Table.Column>

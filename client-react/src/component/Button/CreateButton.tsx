@@ -4,13 +4,14 @@ import { Clipboard, AddFour } from "@icon-park/react";
 export default function CreateButton() {
   return (
     <Button.Group
+      aria-label="button group"
       light
       size="md"
       css={{
         marginRight: "5px",
       }}
     >
-      <Button data-blobity-tooltip="Paste..">
+      <Button aria-label="button" data-blobity-tooltip="Paste..">
         <Clipboard
           size="20"
           style={{
@@ -27,7 +28,7 @@ export default function CreateButton() {
           }}
         ></span>
       </div>
-      <Button data-blobity-tooltip="SHORTEN IT!">
+      <Button aria-label="button" data-blobity-tooltip="SHORTEN IT!">
         <AddFour
           theme="outline"
           size="20"

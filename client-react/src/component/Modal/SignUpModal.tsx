@@ -22,10 +22,11 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Button flat auto onClick={handler}>
+      <Button aria-label="button" flat auto onClick={handler}>
         Sign In
       </Button>
       <Modal
+        aria-label="modal"
         closeButton
         blur
         aria-labelledby="modal-title"
@@ -34,7 +35,7 @@ export default function LoginModal() {
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            <Text h3>
+            <Text h3 aria-label="text">
               {TypingText(
                 "Sign InSign InSign InSign InSign InSign InSign InSign InSign InSign InSign In",
                 40,
@@ -43,8 +44,9 @@ export default function LoginModal() {
             </Text>
           </Text>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body aria-label="modal body">
           <Input
+            aria-label="input"
             clearable
             bordered
             fullWidth
@@ -54,6 +56,7 @@ export default function LoginModal() {
             contentLeft={<Woman theme="outline" size="20" fill="#333" />}
           />
           <Input
+            aria-label="input"
             clearable
             bordered
             fullWidth
@@ -65,6 +68,7 @@ export default function LoginModal() {
             }
           />
           <Input
+            aria-label="input"
             clearable
             bordered
             fullWidth
@@ -74,6 +78,7 @@ export default function LoginModal() {
             // contentLeft={<Mail fill="currentColor" />}
           />
           <Input.Password
+            aria-label="input password"
             clearable
             bordered
             fullWidth
@@ -83,6 +88,7 @@ export default function LoginModal() {
             contentLeft={<LockOne theme="outline" size="20" fill="#333" />}
           />
           <Input.Password
+            aria-label="input password"
             clearable
             bordered
             fullWidth
@@ -94,11 +100,17 @@ export default function LoginModal() {
 
           <GoogleLogin />
         </Modal.Body>
-        <Modal.Footer>
-          <Button auto flat color="error" onClick={closeHandler}>
+        <Modal.Footer aria-label="modal footer">
+          <Button
+            aria-label="button"
+            auto
+            flat
+            color="error"
+            onClick={closeHandler}
+          >
             Close
           </Button>
-          <Button auto onClick={closeHandler}>
+          <Button aria-label="button" auto onClick={closeHandler}>
             Sign Up
           </Button>
         </Modal.Footer>

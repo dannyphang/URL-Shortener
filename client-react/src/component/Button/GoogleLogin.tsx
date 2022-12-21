@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 export default function GoogleLogin() {
   return (
     <div className="OtherLogin">
-      <Row>
+      <Row aria-label="row">
         <div
           style={{
             width: "100%",
@@ -36,12 +36,14 @@ export default function GoogleLogin() {
       </Row>
 
       <Row
+        aria-label="row"
         justify="center"
         style={{
           marginTop: "16px",
         }}
       >
         <Button
+          aria-label="button"
           bordered
           style={{
             color: "#e5e5e5",
@@ -50,6 +52,7 @@ export default function GoogleLogin() {
         >
           <FcGoogle size="26px" />
           <Text
+            aria-label="text"
             size={18}
             h5
             style={{
