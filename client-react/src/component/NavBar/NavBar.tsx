@@ -32,7 +32,12 @@ export default function NavBar() {
             display: loginDisplay,
           }}
         >
-          <Navbar.Item aria-label="navbar item">
+          <Navbar.Item
+            aria-label="navbar item"
+            css={{
+              marginRight: "10px",
+            }}
+          >
             <LoginModal></LoginModal>
           </Navbar.Item>
           <Navbar.Item aria-label="navbar item">

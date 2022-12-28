@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Modal,
-  Input,
-  Row,
-  Checkbox,
-  Button,
-  Text,
-  Link,
-} from "@nextui-org/react";
+import { Modal, Input, Button, Text } from "@nextui-org/react";
 import { EmailSecurity, LockOne, Woman } from "@icon-park/react";
 import GoogleLogin from "../Button/GoogleLogin";
 import TypingText from "../Label/TypingText";
@@ -22,7 +14,7 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Button aria-label="button" flat auto onClick={handler}>
+      <Button aria-label="button" flat auto onPress={handler}>
         Sign In
       </Button>
       <Modal
@@ -34,14 +26,12 @@ export default function LoginModal() {
         onClose={closeHandler}
       >
         <Modal.Header>
-          <Text id="modal-title" size={18}>
-            <Text h3 aria-label="text">
-              {TypingText(
-                "Sign InSign InSign InSign InSign InSign InSign InSign InSign InSign InSign In",
-                40,
-                Infinity
-              )}
-            </Text>
+          <Text aria-label="text" size={25} weight="medium">
+            {TypingText(
+              "Sign InSign InSign InSign InSign InSign InSign InSign InSign InSign InSign In",
+              40,
+              Infinity
+            )}
           </Text>
         </Modal.Header>
         <Modal.Body aria-label="modal body">
@@ -106,11 +96,11 @@ export default function LoginModal() {
             auto
             flat
             color="error"
-            onClick={closeHandler}
+            onPress={closeHandler}
           >
             Close
           </Button>
-          <Button aria-label="button" auto onClick={closeHandler}>
+          <Button aria-label="button" auto onPress={closeHandler}>
             Sign Up
           </Button>
         </Modal.Footer>

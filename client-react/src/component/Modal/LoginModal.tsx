@@ -71,7 +71,7 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Button aria-label="button" light auto onClick={handler}>
+      <Button aria-label="button" light auto onPress={handler}>
         Login
       </Button>
       <Modal
@@ -153,11 +153,11 @@ export default function LoginModal() {
             auto
             flat
             color="error"
-            onClick={closeHandler}
+            onPress={closeHandler}
           >
             Close
           </Button>
-          <Button aria-label="button" auto onClick={loginValidation}>
+          <Button aria-label="button" auto onPress={loginValidation}>
             Login
           </Button>
         </Modal.Footer>

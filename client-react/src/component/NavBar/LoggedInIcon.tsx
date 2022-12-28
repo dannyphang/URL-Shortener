@@ -42,7 +42,7 @@ export default function LoggedInIcon() {
           key="logout"
           color="error"
           withDivider
-          // onClick={!isLoggedIn}
+          // onPress={!isLoggedIn}
         >
           Log Out
         </Dropdown.Item>
