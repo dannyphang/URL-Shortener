@@ -1,7 +1,9 @@
 import { Button } from "@nextui-org/react";
 import { Clipboard, AddFour } from "@icon-park/react";
-import { useState } from "react";
+import { useState, createContext } from "react";
 // import { getTitleAtUrl } from "get-title-at-url";
+
+const URLContext = createContext({ oriUrl: "" });
 
 const CreateButton = (props: { inputUrl: any }) => {
   const initUrl = {
@@ -13,13 +15,13 @@ const CreateButton = (props: { inputUrl: any }) => {
 
   const [url, setUrl] = useState(initUrl);
 
-  const getTitle = async (url: string) => {
-    return await url;
+  const getTitle = (url: string) => {
+    return url;
     // return await getTitleAtUrl(url);
   };
 
   const createShotenUrl = () => {
-    console.log("inputUrl: " + props.inputUrl.url);
+    // console.log("inputUrl: " + props.inputUrl.url);
 
     var data = {
       oriUrl: props.inputUrl.url,
@@ -27,51 +29,62 @@ const CreateButton = (props: { inputUrl: any }) => {
       IP: "",
     };
 
-    console.log(data.title);
+    // console.log("data title: " + data.title);
   };
 
+  async function paste() {
+    const text = await navigator.clipboard.readText();
+    console.log(text);
+  }
+
   return (
-    <Button.Group
-      aria-label="button group"
-      light
-      size="md"
-      css={{
-        marginRight: "5px",
-      }}
-    >
-      <Button aria-label="button" data-blobity-tooltip="Paste..">
-        <Clipboard
-          size="20"
-          style={{
-            marginTop: "7px",
-          }}
-        />
-      </Button>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <span
-          style={{
-            borderLeft: "1.5px solid #b5b5b5",
-            backgroundColor: "#b5b5b5",
-            height: "70%",
-          }}
-        ></span>
-      </div>
-      <Button
-        aria-label="button"
-        data-blobity-tooltip="SHORTEN IT!"
-        onPress={createShotenUrl}
+    <URLContext.Provider value={url}>
+      <Button.Group
+        aria-label="button group"
+        light
+        size="md"
+        css={{
+          marginRight: "5px",
+        }}
       >
-        <AddFour
-          theme="outline"
-          size="20"
-          strokeLinejoin="bevel"
-          strokeLinecap="square"
-          style={{
-            marginTop: "7px",
-          }}
-        />
-      </Button>
-    </Button.Group>
+        <Button
+          aria-label="button"
+          data-blobity-tooltip="Paste.."
+          onPress={paste}
+        >
+          <Clipboard
+            size="20"
+            style={{
+              marginTop: "7px",
+            }}
+          />
+        </Button>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <span
+            style={{
+              borderLeft: "1.5px solid #b5b5b5",
+              backgroundColor: "#b5b5b5",
+              height: "70%",
+            }}
+          ></span>
+        </div>
+        <Button
+          aria-label="button"
+          data-blobity-tooltip="SHORTEN IT!"
+          onPress={createShotenUrl}
+        >
+          <AddFour
+            theme="outline"
+            size="20"
+            strokeLinejoin="bevel"
+            strokeLinecap="square"
+            style={{
+              marginTop: "7px",
+            }}
+          />
+        </Button>
+      </Button.Group>
+    </URLContext.Provider>
   );
 };
 

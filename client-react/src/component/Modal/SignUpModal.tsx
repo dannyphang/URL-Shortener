@@ -9,7 +9,6 @@ export default function LoginModal() {
   const handler = () => setVisible(true);
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
   return (

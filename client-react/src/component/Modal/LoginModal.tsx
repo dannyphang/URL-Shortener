@@ -83,8 +83,8 @@ export default function LoginModal() {
         onClose={closeHandler}
       >
         <Modal.Header aria-label="modal header">
-          <Text id="modal-title" size={18}>
-            <Text h3>{password}</Text>
+          <Text size={25} weight="medium">
+            {password}
           </Text>
         </Modal.Header>
         <Modal.Body aria-label="modal body">
